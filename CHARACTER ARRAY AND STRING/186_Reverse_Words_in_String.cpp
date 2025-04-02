@@ -29,7 +29,8 @@ int main()
 {
     vector<char> s = {'t', 'h', 'e', ' ', 's', 'k', 'y', ' ', 'i', 's', ' ', 'b', 'l', 'u', 'e'};
     reverseWords(s);
-    REv(0, s.size() - 1, s); 
+    // REv(0, s.size() - 1, s); 
+    reverse(s.begin(), s.end());
     for (auto i : s)
     {
         cout << i << " ";
