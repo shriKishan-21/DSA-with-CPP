@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm> 
+
 using namespace std;
 
 long long maximumTripletValue(vector<int> &nums)
@@ -11,14 +14,7 @@ long long maximumTripletValue(vector<int> &nums)
     else if (nums.size() == 3)
     {
         long long result = (long long)(nums[0] - nums[1]) * nums[2];
-        if (result > 0)
-        {
-            return result;
-        }
-        else
-        {
-            return 0;
-        }
+        return result > 0 ? result : 0;
     }
     for (int i = 0; i < nums.size(); i++)
     {
@@ -26,22 +22,14 @@ long long maximumTripletValue(vector<int> &nums)
         {
             for (int k = j + 1; k < nums.size(); k++)
             {
-                long long triplet =
-                    (long long)(nums[i] - nums[j]) * nums[k];
-                if (triplet > 0)
-                {
-                    ans.push_back(triplet);
-                }
-                else
-                {
-                    ans.push_back(0);
-                }
+                long long triplet = (long long)(nums[i] - nums[j]) * nums[k];
+                ans.push_back(triplet > 0 ? triplet : 0);
             }
         }
     }
-    long long sol = *max_element(ans.begin(), ans.end());
-    return sol;
+    return *max_element(ans.begin(), ans.end());
 }
+
 int main()
 {
     vector<int> nums = {1000000, 1, 1000000};
