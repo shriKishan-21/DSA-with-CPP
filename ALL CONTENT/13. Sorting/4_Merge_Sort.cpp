@@ -58,6 +58,10 @@ void merge1(int *arr,int s,int e){
         arr[mainArrayIndex++] = second[index2++];
     }
 
+    // delete the arrays
+    delete []first;
+    delete []second;
+
 }
 
 // function to sort the arrays
