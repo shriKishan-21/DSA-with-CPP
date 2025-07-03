@@ -1,17 +1,33 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
+class Node
+{
 
-class Node{
-    public:
+public:
     int data;
-    Node* next;
-    Node(int data){
-        this->data=data;
-        this->next=NULL;
-    }
+    Node *next;
 
+    // constructor
+    Node(int data)
+    {
+        this->data = data;
+        this->next = NULL;
+    }
 };
+
+void insertAtTail(Node *&tail, int d)
+{
+
+    // create new node
+    Node *temp = new Node(d);
+    // point this new node to head
+    tail->next = temp;
+    // update head
+    tail = temp;
+}
+
+// --------------------------------------------------------------------- 
 
 // Approach 1 -- using recursion
 Node* kReverse(Node* head,int k){
@@ -59,15 +75,21 @@ void print(Node* &head){
 
 int main()
 {
-    Node* head = new Node(10);
-    head->next = new Node(20);
-    head->next->next = new Node(30);
-    head->next->next->next = new Node(40);
-    head->next->next->next->next = new Node(50);
-    head->next->next->next->next->next = new Node(60);
+    Node *node1 = new Node(10);
+
+    // head pointing to node1
+    Node *head1 = node1;
+    Node *tail1 = node1;
+
+    insertAtTail(tail1, 12);
+    insertAtTail(tail1, 15);
+    insertAtTail(tail1, 18);
+    insertAtTail(tail1, 21);
+    print(head1);
+    cout << endl;
 
     int k = 2;
-    Node* newHead = kReverse(head,k);
+    Node* newHead = kReverse(head1,k);
     print(newHead);
     return 0;
 }

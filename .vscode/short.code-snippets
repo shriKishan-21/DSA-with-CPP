@@ -1,0 +1,14 @@
+{
+"": {
+  "prefix": "",
+  "body": [
+    "#include<iostream>",
+    "using namespace std;",
+    "",
+    "int main(){",
+    "",
+    "}"
+  ],
+  "description": ""
+}
+}

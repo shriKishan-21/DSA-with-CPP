@@ -32,7 +32,6 @@ public:
         cout << "Memory is for node with data : " << value << endl;
     }
 };
-
 void insertAtTail(Node *&tail, int d)
 {
 

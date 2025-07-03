@@ -1,22 +1,33 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
+class Node
+{
 
-class Node{
-    public:
+public:
     int data;
-    Node* next;
+    Node *next;
 
-    Node(int data){
-        this->data=data;
+    // constructor
+    Node(int data)
+    {
+        this->data = data;
         this->next = NULL;
-
-    }
-    Node(int data, Node* next){
-        this->data=data;
-        this->next = next;
     }
 };
+
+void insertAtTail(Node *&tail, int d)
+{
+
+    // create new node
+    Node *temp = new Node(d);
+    // point this new node to head
+    tail->next = temp;
+    // update head
+    tail = temp;
+}
+
+// --------------------------------------------------------------------- 
 
 // Aproach 1
 bool detectLoop(Node* head){
