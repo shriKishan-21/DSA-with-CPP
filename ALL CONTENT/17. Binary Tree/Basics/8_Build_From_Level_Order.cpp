@@ -1,0 +1,91 @@
+#include<iostream>
+#include<queue>
+using namespace std;
+
+
+class node{
+
+    public:
+
+    int data;
+    node* left;
+    node* right;
+
+    // constructor
+    node(int d){
+        this->data = d;
+        this->left = NULL;
+        this->right = NULL;
+    }
+
+};
+
+
+node* buildTree(node* root){
+    // creating root node
+    cout<<"Enter the data : "<<endl;
+    int data;
+    cin>>data;
+    root = new node(data);
+
+    // check whether data == -1 -- null 
+    if(data==-1){
+        return NULL;
+    }
+
+    // insertion in left
+    cout<<"Enter data for insertion in left : "<<endl;
+    root->left = buildTree(root->left);
+
+    // insertion in right
+    cout<<"Enter data for insertion in right : "<<endl;
+    root->right = buildTree(root->right);
+
+
+    // Here it will take left child till null is given and same for right child
+}
+
+
+void buildFromLevelOrder(node* &root){
+
+    queue<node*> q;
+    cout<<"Enter the data for root : "<<endl;
+    int data;
+    cin>>data;
+    root = new node(data);
+    q.push(root);
+
+    while(!q.empty()){
+        node* temp = q.front();
+        q.pop();
+
+        cout<<"Enter the left node for : "<<temp->data<<endl;
+
+        int leftData;
+        cin>>leftData;
+
+        if(leftData!=-1){
+            temp->left = new node(leftData);
+            q.push(temp->left);
+        }
+
+        cout<<"Enter the right node for : "<<temp->data<<endl;
+
+        int rightData;
+        cin>>rightData;
+
+        if(rightData!=-1){
+            temp->right = new node(rightData);
+            q.push(temp->right);
+        }
+    }
+}
+
+int main()
+{
+    node* n1;
+
+    buildTree(n1);
+
+    return 0;
+}
