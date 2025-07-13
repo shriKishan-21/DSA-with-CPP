@@ -33,7 +33,7 @@ void insertAtTail(Node* &tail, int d)
 
 
 Node* flattenLL(Node* head){
-
+    
 }
 // --------------------------------------------------------------------
 
