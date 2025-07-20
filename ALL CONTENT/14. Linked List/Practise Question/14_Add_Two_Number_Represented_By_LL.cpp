@@ -76,7 +76,7 @@ Node* add(Node* &first,Node* &second){
     // 2. if first is larger than second
     // 3. if second is larger than first
     // 4. if carry is still remaining after adding all nodes
-    while(first!=NULL || second!=NULL || carry!=-0){
+    while(first!=NULL || second!=NULL || carry!=0){
         // store first value
         int val1 = 0;
         if(first!=NULL){
@@ -107,6 +107,7 @@ Node* add(Node* &first,Node* &second){
     } 
     return ansHead;
 }
+
 Node* addTwoLists(Node* first, Node* second) {
     
     // Step 1 : reverse input LL
@@ -139,6 +140,7 @@ void printLL(Node *&head)
         temp = temp->next;
     }
 }
+
 int main()
 {
     // first list
